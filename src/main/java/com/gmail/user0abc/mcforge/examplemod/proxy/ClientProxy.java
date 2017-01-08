@@ -1,5 +1,6 @@
 package com.gmail.user0abc.mcforge.examplemod.proxy;
 
+import com.gmail.user0abc.mcforge.examplemod.item.ModItems;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -16,6 +17,7 @@ public class ClientProxy extends CommonProxy {
     @Override
     public void init(FMLInitializationEvent event) {
         System.out.println("Client: Init "+System.currentTimeMillis());
+        ModItems.registerRenders();
     }
 
     @Override

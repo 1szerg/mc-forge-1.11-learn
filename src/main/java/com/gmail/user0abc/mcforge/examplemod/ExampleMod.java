@@ -1,5 +1,6 @@
 package com.gmail.user0abc.mcforge.examplemod;
 
+import com.gmail.user0abc.mcforge.examplemod.item.ModItems;
 import com.gmail.user0abc.mcforge.examplemod.proxy.CommonProxy;
 import com.gmail.user0abc.mcforge.examplemod.tab.CreativeTabExample;
 import net.minecraft.creativetab.CreativeTabs;
@@ -26,16 +27,17 @@ public class ExampleMod {
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         tabExample = new CreativeTabExample(CreativeTabs.getNextID(), "tab_example");
+        ModItems.preInit();
         proxy.preInit(event);
     }
 
     @EventHandler
     public void init(FMLInitializationEvent event) {
-        System.out.println("\nInit "+System.currentTimeMillis()+"\n");
+        proxy.init(event);
     }
 
     @EventHandler
     public void postInit(FMLPostInitializationEvent event) {
-        System.out.println("\nPost init "+System.currentTimeMillis()+"\n");
+        proxy.postInit(event);
     }
 }
