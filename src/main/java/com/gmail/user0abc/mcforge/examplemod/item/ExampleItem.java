@@ -1,5 +1,6 @@
 package com.gmail.user0abc.mcforge.examplemod.item;
 
+import com.gmail.user0abc.mcforge.examplemod.action.FlyManager;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -34,20 +35,21 @@ public class ExampleItem extends ItemSword {
 
     @Override
     public boolean hitEntity(ItemStack stack, final EntityLivingBase target, EntityLivingBase attacker) {
-        target.setNoGravity(true);
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                synchronized (target){
-                    try {
-                        target.wait(5000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                    target.setNoGravity(false);
-                }
-            }
-        }).start();
+        FlyManager.letItFlyABit(target);
+//        target.setNoGravity(true);
+//        new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                synchronized (target) {
+//                    try {
+//                        target.wait(5000);
+//                    } catch (InterruptedException e) {
+//                        e.printStackTrace();
+//                    }
+//                    target.setNoGravity(false);
+//                }
+//            }
+//        }).start();
         return super.hitEntity(stack, target, attacker);
     }
 

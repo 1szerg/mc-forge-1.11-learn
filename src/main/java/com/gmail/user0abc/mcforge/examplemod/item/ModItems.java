@@ -16,7 +16,7 @@ public class ModItems {
     public static Item exampleItem;
 
     public static void preInit() {
-        exampleItem = new ExampleItem(EnumHelper.addToolMaterial("Example", 3, 100, 1.0F, 1.0F, 40)).setUnlocalizedName("example_item").setCreativeTab(ExampleMod.tabExample);
+        exampleItem = new ExampleItem(EnumHelper.addToolMaterial("Example", 3, 100, 0.0F, 0.0F, 40)).setUnlocalizedName("example_item").setCreativeTab(ExampleMod.tabExample);
         registerItems();
     }
 

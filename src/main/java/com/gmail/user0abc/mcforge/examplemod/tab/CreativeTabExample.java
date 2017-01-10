@@ -2,7 +2,6 @@ package com.gmail.user0abc.mcforge.examplemod.tab;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
 /**
