@@ -44,4 +44,6 @@ public class ExampleBlock extends Block {
         FlyManager.letItFlyABit(entityIn);
         super.onEntityWalk(worldIn, pos, entityIn);
     }
+
+
 }

@@ -2,6 +2,7 @@ package com.gmail.user0abc.mcforge.examplemod;
 
 import com.gmail.user0abc.mcforge.examplemod.block.ModBlocks;
 import com.gmail.user0abc.mcforge.examplemod.item.ModItems;
+import com.gmail.user0abc.mcforge.examplemod.mob.ModMobs;
 import com.gmail.user0abc.mcforge.examplemod.proxy.CommonProxy;
 import com.gmail.user0abc.mcforge.examplemod.tab.CreativeTabExample;
 import net.minecraft.creativetab.CreativeTabs;
@@ -30,7 +31,9 @@ public class ExampleMod {
         tabExample = new CreativeTabExample(CreativeTabs.getNextID(), "tab_example");
         ModItems.preInit();
         ModBlocks.preInit();
+        ModMobs.registerMobs();
         proxy.preInit(event);
+        ModCrafting.registerRecipes();
     }
 
     @EventHandler

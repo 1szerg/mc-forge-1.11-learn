@@ -1,3 +1,4 @@
 itemGroup.tab_example=Example Mod
 item.example_item.name=Example Item
 tile.example_block=Example Block
+entity.tiger.name=Tiger

@@ -25,16 +25,16 @@ public class ModBlocks {
         registerBlock(exampleBlock);
     }
 
-    public static void registerBlock(Block block){
+    public static void registerBlock(Block block) {
         GameRegistry.register(block, new ResourceLocation(ExampleMod.MODID, block.getUnlocalizedName().substring(5)));
         GameRegistry.register(new ItemBlock(block), new ResourceLocation(ExampleMod.MODID, block.getUnlocalizedName().substring(5)));
     }
 
-    public static void registerRenders(){
+    public static void registerRenders() {
         registerRender(exampleBlock);
     }
 
-    public static void registerRender(Block block){
+    public static void registerRender(Block block) {
         Item item = Item.getItemFromBlock(block);
         Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(item, 0,
                 new ModelResourceLocation(ExampleMod.MODID + ":" + item.getUnlocalizedName().substring(5), "inventory")
