@@ -46,6 +46,7 @@ public class ModelTiger extends ModelBase {
     private int state = 1;
 
     public ModelTiger() {
+
         this.setTextureOffset("head.main", 0, 0);
         this.setTextureOffset("head.nose", 0, 24);
         this.setTextureOffset("head.ear1", 0, 10);
@@ -84,36 +85,20 @@ public class ModelTiger extends ModelBase {
      * Sets the models various rotation angles then renders the model.
      */
     public void render(Entity entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
+        scale=0.1f;
         this.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, entityIn);
-        if (this.isChild) {
-            float f = 2.0F;
-            GlStateManager.pushMatrix();
-            GlStateManager.scale(0.75F, 0.75F, 0.75F);
-            GlStateManager.translate(0.0F, 10.0F * scale, 4.0F * scale);
-            this.ocelotHead.render(scale);
-            GlStateManager.popMatrix();
-            GlStateManager.pushMatrix();
-            GlStateManager.scale(0.5F, 0.5F, 0.5F);
-            GlStateManager.translate(0.0F, 24.0F * scale, 0.0F);
-            this.ocelotBody.render(scale);
-            this.ocelotBackLeftLeg.render(scale);
-            this.ocelotBackRightLeg.render(scale);
-            this.ocelotFrontLeftLeg.render(scale);
-            this.ocelotFrontRightLeg.render(scale);
-            this.ocelotTail.render(scale);
-            this.ocelotTail2.render(scale);
-            GlStateManager.popMatrix();
-        } else {
-            //scale = 0.1f;
-            this.ocelotHead.render(scale);
-            this.ocelotBody.render(scale);
-            this.ocelotTail.render(scale);
-            this.ocelotTail2.render(scale);
-            this.ocelotBackLeftLeg.render(scale);
-            this.ocelotBackRightLeg.render(scale);
-            this.ocelotFrontLeftLeg.render(scale);
-            this.ocelotFrontRightLeg.render(scale);
-        }
+        float f = 2.0F;
+        GlStateManager.pushMatrix();
+        GlStateManager.translate(0.0F, -9.0F * scale, 4.0F * scale);
+        this.ocelotHead.render(scale);
+        this.ocelotBody.render(scale);
+        this.ocelotBackLeftLeg.render(scale);
+        this.ocelotBackRightLeg.render(scale);
+        this.ocelotFrontLeftLeg.render(scale);
+        this.ocelotFrontRightLeg.render(scale);
+        this.ocelotTail.render(scale);
+        this.ocelotTail2.render(scale);
+        GlStateManager.popMatrix();
     }
 
     /**

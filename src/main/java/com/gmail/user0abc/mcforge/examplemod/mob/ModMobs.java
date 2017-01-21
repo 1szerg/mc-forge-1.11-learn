@@ -21,7 +21,7 @@ public class ModMobs {
         int id = 201;
         ResourceLocation rl = new ResourceLocation(ExampleMod.MODID, entityName);
         EntityRegistry.registerModEntity(rl, EntityTiger.class, entityName, id, ExampleMod.instance, 16, 1, true);
-        EntityList.ENTITY_EGGS.put(rl, new EntityList.EntityEggInfo(rl, 0xf4b342, 0x000000));
+        EntityList.ENTITY_EGGS.put(rl, new EntityList.EntityEggInfo(rl, 0xE86A00, 0x000000));
         return id;
     }
 
