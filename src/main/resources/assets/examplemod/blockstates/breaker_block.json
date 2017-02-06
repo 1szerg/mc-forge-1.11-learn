@@ -1,0 +1,16 @@
+{
+    "variants": {
+        "active=true,facing=up": { "model": "examplemod:breaker_block_on", "x": 270 },
+        "active=true,facing=down": { "model": "examplemod:breaker_block_on", "x": 90 },
+        "active=true,facing=north": { "model": "examplemod:breaker_block_on" },
+        "active=true,facing=south": { "model": "examplemod:breaker_block_on", "y": 180 },
+        "active=true,facing=west":  { "model": "examplemod:breaker_block_on", "y": 270 },
+        "active=true,facing=east":  { "model": "examplemod:breaker_block_on", "y": 90 },
+        "active=false,facing=up": { "model": "examplemod:breaker_block", "x": 270 },
+        "active=false,facing=down": { "model": "examplemod:breaker_block", "x": 90 },
+        "active=false,facing=north": { "model": "examplemod:breaker_block" },
+        "active=false,facing=south": { "model": "examplemod:breaker_block", "y": 180 },
+        "active=false,facing=west":  { "model": "examplemod:breaker_block", "y": 270 },
+        "active=false,facing=east":  { "model": "examplemod:breaker_block", "y": 90 }
+    }
+}

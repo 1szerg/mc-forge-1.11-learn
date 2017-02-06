@@ -17,9 +17,12 @@ import net.minecraft.world.World;
  * @author Sergii Ivanov
  */
 public class ExampleBlock extends Block {
-    public ExampleBlock(Material materialIn, String name) {
-        super(materialIn);
-        setUnlocalizedName(name);
+
+    public static final String BLOCK_NAME = "example_block";
+
+    public ExampleBlock() {
+        super(Material.ROCK);
+        setUnlocalizedName("example_block");
         setCreativeTab(ExampleMod.tabExample);
         setHardness(10F);
         setResistance(100F);

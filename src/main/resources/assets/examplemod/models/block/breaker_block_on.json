@@ -1,0 +1,6 @@
+{
+  "parent": "examplemod:block/breaker_block",
+  "textures": {
+    "front": "examplemod:blocks/breaker_front_on"
+  }
+}
