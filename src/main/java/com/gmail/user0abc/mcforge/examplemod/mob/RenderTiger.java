@@ -1,11 +1,9 @@
 package com.gmail.user0abc.mcforge.examplemod.mob;
 
 import com.gmail.user0abc.mcforge.examplemod.ExampleMod;
-import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
-import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
@@ -28,7 +26,7 @@ public class RenderTiger extends RenderLiving<EntityTiger> {
         return texture;
     }
 
-    protected void preRenderCallback(EntityTiger entityLivingBaseIn, float partialTickTime){
+    protected void preRenderCallback(EntityTiger entityLivingBaseIn, float partialTickTime) {
         super.preRenderCallback(entityLivingBaseIn, partialTickTime);
     }
 

@@ -1,18 +1,17 @@
 package com.gmail.user0abc.mcforge.examplemod.block;
 
 import com.gmail.user0abc.mcforge.examplemod.ExampleMod;
-import com.google.common.collect.ImmutableMap;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockDirectional;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyBool;
-import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
@@ -22,6 +21,8 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -32,6 +33,15 @@ public class BlockBreaker extends BlockDirectional {
     public static final PropertyBool ACTIVE = PropertyBool.create("active");
     public static final String NAME_OFF = "breaker_block";
     public static final String NAME_ON = "breaker_block_on";
+    private static final List<Block> restricted = new ArrayList<Block>();
+
+    {
+        restricted.add(Blocks.BEDROCK);
+        restricted.add(Blocks.WATER);
+        restricted.add(Blocks.FLOWING_WATER);
+        restricted.add(Blocks.LAVA);
+        restricted.add(Blocks.FLOWING_LAVA);
+    }
 
     public BlockBreaker(boolean isEnabled) {
         super(Material.ROCK);
@@ -75,21 +85,27 @@ public class BlockBreaker extends BlockDirectional {
 
     private void harvestBlock(World worldIn, BlockPos pos, IBlockState state) {
         BlockPos target = null;
-        switch (state.getValue(FACING)){
+        switch (state.getValue(FACING)) {
             case DOWN:
-                target = pos.down();break;
+                target = pos.down();
+                break;
             case UP:
-                target = pos.up();break;
+                target = pos.up();
+                break;
             case EAST:
-                target = pos.east();break;
+                target = pos.east();
+                break;
             case NORTH:
-                target = pos.north();break;
+                target = pos.north();
+                break;
             case WEST:
-                target = pos.west();break;
+                target = pos.west();
+                break;
             case SOUTH:
-                target = pos.south();break;
-            }
-        if(target != null){
+                target = pos.south();
+                break;
+        }
+        if (target != null && restricted.indexOf(worldIn.getBlockState(target).getBlock()) < 0) {
             worldIn.destroyBlock(target, true);
         }
     }
@@ -113,7 +129,7 @@ public class BlockBreaker extends BlockDirectional {
         if (!state.getValue(ACTIVE) && worldIn.isBlockPowered(pos)) {
             worldIn.setBlockState(pos, state.withProperty(ACTIVE, true));
             harvestBlock(worldIn, pos, state);
-        }else if(state.getValue(ACTIVE) && !worldIn.isBlockPowered(pos)){
+        } else if (state.getValue(ACTIVE) && !worldIn.isBlockPowered(pos)) {
             worldIn.setBlockState(pos, state.withProperty(ACTIVE, false));
         }
     }
@@ -129,7 +145,6 @@ public class BlockBreaker extends BlockDirectional {
     }
 
 
-
     @Override
     public boolean canConnectRedstone(IBlockState state, IBlockAccess world, BlockPos pos, @Nullable EnumFacing side) {
         return true;
@@ -140,9 +155,8 @@ public class BlockBreaker extends BlockDirectional {
         return false;
     }
 
-    protected BlockStateContainer createBlockState()
-    {
-        return new BlockStateContainer(this, new IProperty[] {FACING, ACTIVE});
+    protected BlockStateContainer createBlockState() {
+        return new BlockStateContainer(this, new IProperty[]{FACING, ACTIVE});
     }
 
     @Override
@@ -159,13 +173,11 @@ public class BlockBreaker extends BlockDirectional {
         return EnumFacing.getFront(dir);
     }
 
-    public int getMetaFromState(IBlockState state)
-    {
+    public int getMetaFromState(IBlockState state) {
         int i = 0;
-        i = i | ((EnumFacing)state.getValue(FACING)).getIndex();
+        i = i | ((EnumFacing) state.getValue(FACING)).getIndex();
 
-        if (state.getValue(ACTIVE))
-        {
+        if (state.getValue(ACTIVE)) {
             i |= 8;
         }
 

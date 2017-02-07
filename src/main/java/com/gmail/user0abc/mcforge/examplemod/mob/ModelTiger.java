@@ -85,7 +85,7 @@ public class ModelTiger extends ModelBase {
      * Sets the models various rotation angles then renders the model.
      */
     public void render(Entity entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
-        scale=0.1f;
+        scale = 0.1f;
         this.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, entityIn);
         float f = 2.0F;
         GlStateManager.pushMatrix();
