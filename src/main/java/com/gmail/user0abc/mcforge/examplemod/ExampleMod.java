@@ -1,11 +1,13 @@
 package com.gmail.user0abc.mcforge.examplemod;
 
+import com.gmail.user0abc.mcforge.examplemod.action.ExampleEvents;
 import com.gmail.user0abc.mcforge.examplemod.block.ModBlocks;
 import com.gmail.user0abc.mcforge.examplemod.item.ModItems;
 import com.gmail.user0abc.mcforge.examplemod.mob.ModMobs;
 import com.gmail.user0abc.mcforge.examplemod.proxy.CommonProxy;
 import com.gmail.user0abc.mcforge.examplemod.tab.CreativeTabExample;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -34,6 +36,7 @@ public class ExampleMod {
         ModMobs.registerMobs();
         proxy.preInit(event);
         ModCrafting.registerRecipes();
+        MinecraftForge.EVENT_BUS.register(new ExampleEvents());
     }
 
     @EventHandler

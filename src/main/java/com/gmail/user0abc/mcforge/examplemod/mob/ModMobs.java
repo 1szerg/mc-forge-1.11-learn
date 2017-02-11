@@ -14,13 +14,13 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class ModMobs {
 
     public static void registerMobs() {
-        registerMob(EntityTiger.class, "tiger");
+        registerMob(EntityTiger.class, EntityTiger.NAME);
     }
 
     public static int registerMob(Class entityClass, String entityName) {
         int id = 201;
         ResourceLocation rl = new ResourceLocation(ExampleMod.MODID, entityName);
-        EntityRegistry.registerModEntity(rl, EntityTiger.class, entityName, id, ExampleMod.instance, 16, 1, true);
+        EntityRegistry.registerModEntity(rl, entityClass, entityName, id, ExampleMod.instance, 16, 1, true);
         EntityList.ENTITY_EGGS.put(rl, new EntityList.EntityEggInfo(rl, 0xE86A00, 0x000000));
         return id;
     }
