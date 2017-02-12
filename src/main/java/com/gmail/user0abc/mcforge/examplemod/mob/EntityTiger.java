@@ -20,8 +20,6 @@ public class EntityTiger extends EntityMob {
     public EntityTiger(World worldIn) {
         super(worldIn);
         this.setSize(0.9f, 0.9f);
-
-//        setRenderDistanceWeight(2d);
     }
 
     @Override

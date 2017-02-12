@@ -30,9 +30,9 @@ import java.util.Random;
  */
 public class BlockBreaker extends BlockDirectional {
 
-    public static final PropertyBool ACTIVE = PropertyBool.create("active");
     public static final String NAME_OFF = "breaker_block";
     public static final String NAME_ON = "breaker_block_on";
+    public static final PropertyBool ACTIVE = PropertyBool.create("active");
     private static final List<Block> restricted = new ArrayList<Block>();
 
     {
